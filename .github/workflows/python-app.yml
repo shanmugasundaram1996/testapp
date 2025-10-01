@@ -20,15 +20,12 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install -r CI/CD_testapp/requirements.txt
+        pip install -r requirements.txt
         pip install pytest pytest-cov
 
-    - name: List files for debugging
-      run: |
-        dir
-        dir CI\CD_testapp
+    - name: List files (for debugging)
+      run: dir
 
-    - name: Run tests
-      working-directory: CI/CD_testapp
-      run: pytest .
+    - name: Run tests with coverage
+      run: pytest --cov=source_code
 
